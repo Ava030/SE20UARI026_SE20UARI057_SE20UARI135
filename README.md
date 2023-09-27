@@ -1,27 +1,73 @@
-# SE20UARI026_SE20UARI057_SE20UARI135
+# Fingerprint Authentication with LED Feedback System using Raspi and Adafruit
 
-Group Members 
-Avani - SE20UARI026
-Geha - SE20UARI057
-Samvidha - SE20UARI135 	
+This script is designed to interface with a fingerprint sensor, allowing users to enroll, search, and delete stored fingerprint templates. The program provides real-time feedback through an LED — lighting up or blinking based on authentication success or failure. Additionally, security measures have been implemented to handle consecutive failed attempts, triggering a timeout to prevent rapid, repeated unauthorized access attempts.
 
 
-We have used Fingerprint sensor on a Raspberry Pi captures and processes fingerprint data to verify or identify individuals based on their unique fingerprint pattern.  
+## Overview  
+### Components Involved 
+Raspberry Pi, Fingerprint sensor, Jumper wires, Power source, Monitor 
 
-Fingerprint Sensor : also known as fingerprint scanner/ reader device that captures and analyzes the unique patterns found on an individual's fingertip. Commonly used for authentication, security and identity verification.
+### Hardware Connection
+Connect the ground, power, serial communication pins of the fingerprint sensor module to the Raspberry Pi using jumper wires.
 
-Overview  
-Components Involved  
-Raspberry Pi, Fingerprint sensor, Jumper wires,Power source, Monitor 
+### Software and capturing fingerprints 
+Connect the Adafruit fingerprint sensor and LED to the Raspberry Pi
 
-Hardware Connection: 
-Connected the ground, power, serial communication pins of the fingerprint sensor module to the Raspberry Pi using jumper wires.
+1. Open terminal on the Raspberry Pi and install necessary libraries for the fingerprint sensor i.e Adafruit
 
-Software and capturing fingerprints - 
-Opened terminal on the Raspberry Pi and installed necessary libraries for the fingerprint sensor i.e Adafruit
-Code - python script to enroll fingerprints, added an authentication to verify fingerprints ((explained in detailed))
+```pip3 install --user adafruit-nrfutil```
 
-Working of  fingerprint recognition for authentication : 
- Compare the captured fingerprint template with a single stored template to determine if they match. If they do, grant access.
-Provide feedback to the user, such as a green LED for access granted or a red LED for access denied.
+2. Clone this repository
+
+``` git clone https://github.com/Ava030/SE20UARI026_SE20UARI057_SE20UARI135 ```
+
+3. Navigate to the directory
+
+   ``` cd Raspi ```
+
+4. Install the required libraries
+
+   ``` pip3 install -r requirements.txt ```
+
+5.  Run the script
+
+``` python3 fingerprint_sensor_with_led_and_timeout.py```
+
+
+
+
+## Working of  fingerprint recognition for authentication : 
+After launching the script:
+
+Use 'e' to enroll a new fingerprint.
+
+Use 'f' to find and authenticate a stored fingerprint.
+
+Use 'd' to delete a stored fingerprint.
+
+
+LED feedback will provide a clear indication of the status of each operation. It will:
+
+Blink fast for an error.
+
+Blink slowly when waiting for a fingerprint.
+
+Light solid for a few seconds if access is granted.
+
+
+
+
+## Value Proposition
+#### Fingerprint Authentication: 
+Enables secure user verification through fingerprint enrollment and scanning.
+
+#### Security Features: 
+Includes configurable security measures to deter unauthorized access, including a threshold for failed attempts and a timeout mechanism.
+
+#### User-Friendly Interface:
+Offers a straightforward console interface for fingerprint management, with LED feedback.
+
+
+
+
 
